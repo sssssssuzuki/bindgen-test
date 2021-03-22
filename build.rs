@@ -19,6 +19,9 @@ fn main() {
     println!("cargo:rerun-if-changed=cpp/sample.cpp");
 
     cc::Build::new()
+        .warnings(true)
+        .cpp(true)
+        .static_flag(true)
         .file("cpp/sample.cpp")
         .include("cpp")
         .compile("sample");
